@@ -1,0 +1,11 @@
+import os, requests
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
+def send_msg(text):
+    url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+    requests.post(url, data={"chat_id": CHAT_ID, "text": text, "parse_mode": "Markdown"})
+if BOT_TOKEN and CHAT_ID:
+    send_msg("🚀 *BOT LA MACHE BAZ!* Test reyisi! 📈")
+    print("Voye!")
+else:
+    print("Mete BOT_TOKEN ak CHAT_ID nan Render")
